@@ -1,9 +1,30 @@
-
+<!DOCTYPE html>
 <html>
-	<title>
+<head>
+<script>
+function startTime() {
+  var today = new Date();
+  var h = today.getHours();
+  var m = today.getMinutes();
+  var s = today.getSeconds();
+  m = checkTime(m);
+  s = checkTime(s);
+  document.getElementById('txt').innerHTML =
+  h + ":" + m + ":" + s;
+  var t = setTimeout(startTime, 500);
+}
+function checkTime(i) {
+  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+  return i;
+}
+</script>
+</head>
+<title>
 		This is: {environment}
 	</title>
-	<body>
-		<h1>Hello from {hostname}!</h1>
-	</body>
+<body onload="startTime()">
+<h1>Hello from {hostname}!</h1>
+<div id="txt"></div>
+
+</body>
 </html>
